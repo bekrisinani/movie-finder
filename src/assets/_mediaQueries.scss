@@ -1,0 +1,46 @@
+$phoneMaxWidth: 719px;
+$iPhoneMaxWidth: 428px;
+$iPhoneMaxPixelDensity: 3;
+$tabletMinWidth: 702px;
+$tabletMaxWidth: 1061px;
+$desktopMinWidth: 1025px;
+$desktopMaxWidth: 1440px;
+$largeDesktopMin: 1441px;
+
+@mixin for-phone {
+  @media (max-width: $phoneMaxWidth), (max-width: $iPhoneMaxWidth) and (-webkit-device-pixel-ratio: $iPhoneMaxPixelDensity) {
+    @content;
+  }
+}
+@mixin for-tablet {
+  @media (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+    @content;
+  }
+}
+@mixin for-desktop {
+  @media (min-width: $desktopMinWidth) and (max-width: $desktopMaxWidth) {
+    @content;
+  }
+}
+@mixin for-large-desktop {
+  @media (min-width: 1441px) {
+    @content;
+  }
+}
+
+@mixin for-2x-res {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+:export {
+  phoneMaxWidth: $phoneMaxWidth;
+  iPhoneMaxWidth: $iPhoneMaxWidth;
+  iPhoneMaxPixelDensity: $iPhoneMaxPixelDensity;
+  tabletMinWidth: $tabletMinWidth;
+  tabletMaxWidth: $tabletMaxWidth;
+  desktopMinWidth: $desktopMinWidth;
+  desktopMaxWidth: $desktopMaxWidth;
+  largeDesktopMinWidth: $largeDesktopMin;
+}
